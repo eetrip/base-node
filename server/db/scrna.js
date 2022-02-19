@@ -1,9 +1,9 @@
-export class Users {
+export class Scrna {
   constructor() {
-    if (this.constructor === Users) {
+    if (this.constructor === Scrna) {
       throw new Error(`Abstract class ${this.constructor.name} cannot be instantiated`);
     }
   }
 }
 
-export default Users;
+export default Scrna;

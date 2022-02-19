@@ -1,17 +1,17 @@
-import { Users } from './users.js';
+import { Scrna } from './scrna.js';
 
 export class DB {
-  get Users() {
-    return this.users;
+  get Scrna() {
+    return this.scrna;
   }
 
   constructor({
-    users = new Users(),
+    scrna = new Scrna(),
   } = {}) {
     if (this.constructor === DB) {
       throw new Error(`Abstract class ${this.constructor.name} cannot be instantiated`);
     }
-    this.users = users;
+    this.scrna = scrna;
   }
 }
 

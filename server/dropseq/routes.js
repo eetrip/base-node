@@ -1,16 +1,11 @@
-import controller from './controller.js';
+import express from 'express';
 
 export class Routes {
-  constructor(app) {
-    this.app = app;
-  }
+  get Router() { return this.router; }
 
-  appRoutes() {
-    this.app.post('/first', controller.first);
-  }
-
-  routesConfig() {
-    this.appRoutes();
+  constructor({ controller }) {
+    this.router = express.Router();
+    this.router.post('/', controller.list);
   }
 }
 

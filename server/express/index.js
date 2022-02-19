@@ -1,13 +1,14 @@
 /* eslint-disable import/no-import-module-exports */
 import express from 'express';
 import http from 'http';
-import Route from '../dropseq/routes.js';
+import { routes } from '../dropseq/index.js';
 
 import Config from './config.js';
 
 export class Server {
   constructor() {
     this.app = express();
+    this.router = express.Router();
     this.http = http.Server(this.app);
   }
 
@@ -16,7 +17,7 @@ export class Server {
   }
 
   includeRoutes() {
-    new Route(this.app).routesConfig();
+    this.app.use('/api', routes);
   }
 
   appExecute() {
