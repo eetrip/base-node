@@ -3,7 +3,7 @@ import express from 'express';
 import http from 'http';
 import Route from '../dropseq/routes.js';
 
-import AppConfig from './config.js';
+import Config from './config.js';
 
 export class Server {
   constructor() {
@@ -12,7 +12,7 @@ export class Server {
   }
 
   appConfig() {
-    new AppConfig(this.app).includeConfig();
+    new Config(this.app).includeConfig();
   }
 
   includeRoutes() {

@@ -3,6 +3,8 @@ import cors from 'cors';
 import { config } from 'dotenv';
 import Express from './express-config.js';
 
+const express = (app) => new Express(app);
+
 export class AppConfig {
   constructor(app) {
     config();
@@ -12,7 +14,7 @@ export class AppConfig {
   includeConfig() {
     this.app.use(json());
     this.app.use(cors());
-    new Express(this.app);
+    express(this.app);
   }
 }
 
